@@ -1,5 +1,6 @@
-require './ruby/spec/spec_helper'
-require File.join(File.dirname(__FILE__) + '/..', 'gilded_rose')
+require 'spec_helper'
+require 'gilded_rose'
+# require File.join(File.dirname(__FILE__) + '/..', 'gilded_rose')
 
 describe GildedRose do
 
