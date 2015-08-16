@@ -6,7 +6,7 @@ describe GildedRose do
   describe '#update_quality' do
     shared_examples 'default item sell in' do |item_name|
       it 'lowers sell in value by 1 at the end of the day' do
-        item = Item.new item_name, sell_in=1, quality=0
+        item = Item.new item_name, sell_in = 1, quality = 0
         items = [item]
         gilded_rose = described_class.new items
         gilded_rose.update_quality
@@ -15,7 +15,7 @@ describe GildedRose do
 
       it 'lowers sell in value by N after N days' do
         n = 10
-        item = Item.new item_name, sell_in=n, quality=0
+        item = Item.new item_name, sell_in = n, quality = 0
         items = [item]
         gilded_rose = described_class.new items
 
@@ -28,7 +28,7 @@ describe GildedRose do
       end
 
       it 'sell in value can be negative' do
-        item = Item.new item_name, sell_in=0, quality=0
+        item = Item.new item_name, sell_in = 0, quality = 0
         items = [item]
         gilded_rose = described_class.new items
         gilded_rose.update_quality
@@ -38,7 +38,7 @@ describe GildedRose do
 
     shared_examples 'quality value' do |item_name|
       it 'quality value is never negative' do
-        item = Item.new item_name, sell_in=0, quality=0
+        item = Item.new item_name, sell_in = 0, quality = 0
         items = [item]
         gilded_rose = described_class.new items
         gilded_rose.update_quality
@@ -46,7 +46,7 @@ describe GildedRose do
       end
 
       it 'quality value is never more than 50' do
-        item = Item.new item_name, sell_in=20, quality=50
+        item = Item.new item_name, sell_in = 20, quality = 50
         items = [item]
         gilded_rose = described_class.new items
         gilded_rose.update_quality
@@ -56,7 +56,7 @@ describe GildedRose do
 
     context 'item name' do
       it 'does not change the name' do
-        item = Item.new 'foo', sell_in=0, quality=0
+        item = Item.new 'foo', sell_in = 0, quality = 0
         items = [item]
         gilded_rose = described_class.new items
         gilded_rose.update_quality
@@ -71,7 +71,7 @@ describe GildedRose do
 
       context 'when sell in date not passed yet' do
         it 'lowers quality value by 1 at the end of the day' do
-          item = Item.new 'foo', sell_in=1, quality=1
+          item = Item.new 'foo', sell_in = 1, quality = 1
           items = [item]
           gilded_rose = described_class.new items
           gilded_rose.update_quality
@@ -80,7 +80,7 @@ describe GildedRose do
 
         it 'lowers quality value by N after N days' do
           n = 10
-          item = Item.new 'foo', sell_in=n, quality=n
+          item = Item.new 'foo', sell_in = n, quality = n
           items = [item]
           gilded_rose = described_class.new items
 
@@ -95,7 +95,7 @@ describe GildedRose do
 
       context 'when sell in date has passed' do
         it 'lowers quality value by 2 at the end of the day' do
-          item = Item.new 'foo', sell_in=0, quality=4
+          item = Item.new 'foo', sell_in = 0, quality = 4
           items = [item]
           gilded_rose = described_class.new items
           gilded_rose.update_quality
@@ -105,7 +105,7 @@ describe GildedRose do
         it 'lowers quality value twice as fast after N days' do
           n = 5
           quality = 15
-          item = Item.new 'foo', sell_in=0, quality=quality
+          item = Item.new 'foo', sell_in = 0, quality = quality
           items = [item]
           gilded_rose = described_class.new items
 
@@ -126,7 +126,7 @@ describe GildedRose do
         context 'when sell in date not passed yet' do
           it 'increases by 1 the older it gets' do
             n = 5
-            item = Item.new 'Aged Brie', sell_in=n, quality=0
+            item = Item.new 'Aged Brie', sell_in = n, quality = 0
             items = [item]
             gilded_rose = described_class.new items
 
@@ -142,7 +142,7 @@ describe GildedRose do
         context 'when sell in date has passed' do
           it 'increases twice as fast the older it gets' do
             n = 5
-            item = Item.new 'Aged Brie', sell_in=0, quality=0
+            item = Item.new 'Aged Brie', sell_in = 0, quality = 0
             items = [item]
             gilded_rose = described_class.new items
 
@@ -157,7 +157,7 @@ describe GildedRose do
 
         it 'is never more than 50' do
           n = 2
-          item = Item.new 'Aged Brie', sell_in=n, quality=49
+          item = Item.new 'Aged Brie', sell_in = n, quality = 49
           items = [item]
           gilded_rose = described_class.new items
 
@@ -173,7 +173,7 @@ describe GildedRose do
     context 'when item is Sulfuras, Hand of Ragnaros' do
       context 'item sell in' do
         it 'does not change the sell in' do
-          item = Item.new 'Sulfuras, Hand of Ragnaros', sell_in=0, quality=0
+          item = Item.new 'Sulfuras, Hand of Ragnaros', sell_in = 0, quality = 0
           items = [item]
           gilded_rose = described_class.new items
           gilded_rose.update_quality
@@ -186,7 +186,7 @@ describe GildedRose do
         it_behaves_like 'quality value', item_name='Sulfuras, Hand of Ragnaros'
 
         it 'does not change the quality' do
-          item = Item.new 'Sulfuras, Hand of Ragnaros', sell_in=0, quality=0
+          item = Item.new 'Sulfuras, Hand of Ragnaros', sell_in = 0, quality = 0
           items = [item]
           gilded_rose = described_class.new items
           gilded_rose.update_quality
@@ -207,7 +207,7 @@ describe GildedRose do
             it 'increases by 1 the older it gets' do
               n = 5
               quality = 1
-              item = Item.new 'Backstage passes to a TAFKAL80ETC concert', sell_in=15, quality=quality
+              item = Item.new 'Backstage passes to a TAFKAL80ETC concert', sell_in = 15, quality = quality
               items = [item]
               gilded_rose = described_class.new items
 
@@ -220,7 +220,7 @@ describe GildedRose do
             end
 
             it 'increases to 50 when sell_in above 10 and quality is 49' do
-              item = Item.new 'Backstage passes to a TAFKAL80ETC concert', sell_in=15, quality=49
+              item = Item.new 'Backstage passes to a TAFKAL80ETC concert', sell_in = 15, quality = 49
               items = [item]
               gilded_rose = described_class.new items
               gilded_rose.update_quality
@@ -229,7 +229,7 @@ describe GildedRose do
             end
 
             it 'increases to 50 instead of 51 when sell_in at least 5 and quality is 49' do
-              item = Item.new 'Backstage passes to a TAFKAL80ETC concert', sell_in=5, quality=49
+              item = Item.new 'Backstage passes to a TAFKAL80ETC concert', sell_in = 5, quality = 49
               items = [item]
               gilded_rose = described_class.new items
               gilded_rose.update_quality
@@ -242,7 +242,7 @@ describe GildedRose do
             it 'increases by 2 the older it gets' do
               n = 5
               quality = 1
-              item = Item.new 'Backstage passes to a TAFKAL80ETC concert', sell_in=10, quality=quality
+              item = Item.new 'Backstage passes to a TAFKAL80ETC concert', sell_in = 10, quality = quality
               items = [item]
               gilded_rose = described_class.new items
 
@@ -255,7 +255,7 @@ describe GildedRose do
             end
 
             it 'increases to 50 instead of 52 when sell_in at least 1 and quality is 49' do
-              item = Item.new 'Backstage passes to a TAFKAL80ETC concert', sell_in=1, quality=49
+              item = Item.new 'Backstage passes to a TAFKAL80ETC concert', sell_in = 1, quality = 49
               items = [item]
               gilded_rose = described_class.new items
               gilded_rose.update_quality
@@ -268,7 +268,7 @@ describe GildedRose do
             it 'increases by 3 the older it gets' do
               n = 5
               quality = 1
-              item = Item.new 'Backstage passes to a TAFKAL80ETC concert', sell_in=5, quality=quality
+              item = Item.new 'Backstage passes to a TAFKAL80ETC concert', sell_in = 5, quality = quality
               items = [item]
               gilded_rose = described_class.new items
 
@@ -281,7 +281,7 @@ describe GildedRose do
             end
 
             it 'increases to 50 instead of 52 when sell_in at least 1 and quality is 49' do
-              item = Item.new 'Backstage passes to a TAFKAL80ETC concert', sell_in=1, quality=49
+              item = Item.new 'Backstage passes to a TAFKAL80ETC concert', sell_in = 1, quality = 49
               items = [item]
               gilded_rose = described_class.new items
               gilded_rose.update_quality
@@ -293,7 +293,7 @@ describe GildedRose do
 
         context 'when sell in date has passed' do
           it 'drops to 0 after the concert' do
-            item = Item.new 'Backstage passes to a TAFKAL80ETC concert', sell_in=0, quality=5
+            item = Item.new 'Backstage passes to a TAFKAL80ETC concert', sell_in = 0, quality = 5
             items = [item]
             gilded_rose = described_class.new items
             gilded_rose.update_quality
