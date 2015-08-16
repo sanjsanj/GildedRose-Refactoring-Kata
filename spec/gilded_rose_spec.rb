@@ -32,7 +32,6 @@ describe GildedRose do
         items = [item]
         gilded_rose = described_class.new items
         gilded_rose.update_quality
-
         expect(item.sell_in).to eq -1
       end
     end
@@ -43,7 +42,6 @@ describe GildedRose do
         items = [item]
         gilded_rose = described_class.new items
         gilded_rose.update_quality
-
         expect(item.quality).to eq 0
       end
 
@@ -52,7 +50,6 @@ describe GildedRose do
         items = [item]
         gilded_rose = described_class.new items
         gilded_rose.update_quality
-
         expect(item.quality).to be <= 50
       end
     end
@@ -63,7 +60,6 @@ describe GildedRose do
         items = [item]
         gilded_rose = described_class.new items
         gilded_rose.update_quality
-
         expect(item.name).to eq 'foo'
       end
     end
@@ -79,7 +75,6 @@ describe GildedRose do
           items = [item]
           gilded_rose = described_class.new items
           gilded_rose.update_quality
-
           expect(item.quality).to eq 0
         end
 
@@ -104,7 +99,6 @@ describe GildedRose do
           items = [item]
           gilded_rose = described_class.new items
           gilded_rose.update_quality
-
           expect(item.quality).to eq 2
         end
 
